@@ -40,10 +40,18 @@ public class EmailApp {
                     email1.criarEmailAlternativo();
                     break;
                 case 5:
-                   // email1.alterarLimite();
-
+                    email1.gerarArquivoArmazenamento();
+                    break;
+                case 6:
+                    email1.lerArquivo();
+                    break;
+                case 7:
+                    System.out.println("\nTHANKS!!!");
+                    break;
+                default:
+                    System.out.println("INVALID CHOICE! ENTER AGAIN!");
             }
-        }
-    }
 
+        } while (escolha != 7);
+    }
 }
