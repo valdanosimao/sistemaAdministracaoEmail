@@ -27,9 +27,11 @@ public class Email {
     public Email(String primeiroNome, String segundoNome) {
         this.primeiroNome = primeiroNome;
         this.segundoNome = segundoNome;
-        System.out.println("Novo Funcionário: "
-                + this.primeiroNome + " "
-                + this.segundoNome);
+        System.out.println("Novo Funcionário: " + this.primeiroNome + " "+ this.segundoNome);
+
+        this.departamento = this.setarDepartamento();
+        this.senha = this.gerarSenha(8);
+        this.email = this.gerarEmail();
     }
 
     /**
@@ -140,5 +142,17 @@ public class Email {
         System.out.println("Entre com um novo email: ");
         this.emailAlternativo = entrada.next();
         System.out.println("Email alternativo criado com sucesso!");
+    }
+
+    /**
+     * Método que mostra as informaçõs na tela (Terminal)
+     */
+    public void mostrarInformacoes(){
+        System.out.println("Novo:"+this.primeiroNome+" "+this.segundoNome);
+        System.out.println("Departamento:"+this.departamento);
+        System.out.println("Email:"+this.email);
+        System.out.println("Senha:"+this.senha);
+        System.out.println("Capacidade caixa de entrada:"+this.capacidadeEmail+"mb");
+
     }
 }
