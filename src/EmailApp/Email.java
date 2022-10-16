@@ -8,49 +8,50 @@ import java.util.Scanner;
 public class Email {
 
     /**
-     * Classe Scanner
+     * Classe Scanner, para usar a entrada no console
      */
     Scanner entrada = new Scanner(System.in);
 
     /**
-     * Atributos
+     * Atributos da classe Email
      */
     private String primeiroNome;
-    private String segundoNome;
+    private String ultimoNome;
     private String departamento;
     private String email;
     private String senha;
-    private Integer capacidadeEmail = 500;
+    private int capacidadeEmail = 500;
     private String emailAlternativo;
 
     /**
-     * Construtor que recebe o primeiro e o segundo nome
+     * Construtor que recebe o primeiro e o último nome
      */
-    public Email(String primeiroNome, String segundoNome) {
+    public Email(String primeiroNome, String ultimoNome) {
         this.primeiroNome = primeiroNome;
-        this.segundoNome = segundoNome;
-        System.out.println("Novo Funcionário: " + this.primeiroNome + " " + this.segundoNome);
-
+        this.ultimoNome = ultimoNome;
+        System.out.println("NOME DO FUNCIONÁRIO: " + this.primeiroNome
+                + " " + this.ultimoNome);
         this.departamento = this.setarDepartamento();
         this.senha = this.gerarSenha(8);
         this.email = this.gerarEmail();
     }
 
     /**
-     * Método que gera emails para os funcionários
+     * Método que gera email para o funcionário, de acordo com as informações
+     * que foi passada no sistema
      */
     public String gerarEmail() {
         return this.primeiroNome.toLowerCase()
-                + "." + this.segundoNome.toLowerCase()
+                + "_" + this.ultimoNome.toLowerCase()
                 + "@" + this.departamento + "javacentrologistico.com.br";
     }
 
     /**
-     * Método que solicita o código dos departamentos
+     * Método que solicita o código do departamento
      */
     public String setarDepartamento() {
 
-        System.out.println("Codigos dos departamentos \n" +
+        System.out.println("O FUNCIONÁRIO É DE QUAL SETOR? \n" +
                 "1 Para Vendas \n" +
                 "2 Para Desenvolvimento \n" +
                 "3 Para Contabilidade \n" +
@@ -79,7 +80,7 @@ public class Email {
     }
 
     /**
-     * Método gerador de senhas Random
+     * Método que gera senhas aleatórias com o Random
      */
     public String gerarSenha(Integer tamanhoSenha) {
         Random random = new Random();
@@ -99,7 +100,7 @@ public class Email {
     }
 
     /**
-     * Método que faz alteração de senhas
+     * Método que faz alteração de senha
      */
     public void alterarSenha() {
         Boolean status = false;
@@ -127,7 +128,7 @@ public class Email {
     }
 
     /**
-     * Método que define a capacidade total de emails na caixa de entrada     *
+     * Método que define a capacidade total de emails na caixa de entrada
      */
     public void definirCapacidadeTotalEmail() {
         System.out.println("Capacidade Atual= " + this.capacidadeEmail + "mb");
@@ -140,35 +141,37 @@ public class Email {
     /**
      * Metoque que cria um email alternativo
      */
-    public void criarEmailAlternativo() {
-        System.out.println("Entre com um novo email: ");
+    public void inserirEmailAlternativo() {
+        System.out.println("Insira seu email alternativo: ");
         this.emailAlternativo = entrada.next();
         System.out.println("Email alternativo criado com sucesso!");
     }
 
     /**
-     * Exibindo as informações do funcionário
+     * Método que exibe as informações do funcionário
      */
     public void mostrarInformacoes() {
-        System.out.println("Novo:" + this.primeiroNome + " " + this.segundoNome);
+        System.out.println("Novo:" + this.primeiroNome + " " + this.ultimoNome);
         System.out.println("Departamento:" + this.departamento);
         System.out.println("Email:" + this.email);
         System.out.println("Senha:" + this.senha);
         System.out.println("Capacidade caixa de entrada:" + this.capacidadeEmail + "mb");
+        System.out.println("Email alternativo:" + this.emailAlternativo);
     }
 
     /**
-     * Método que armazena os dados em um arquivo
+     * Método que gerar um arquivo de texto no PC, de acordo com as informações passadas
      */
     public void gerarArquivoArmazenamento() {
         try {
-            FileWriter in = new FileWriter("C:\\Users\\valda\\Desktop\\informacoes.txt");
-            in.write("Primeiro nome: " + this.primeiroNome);
-            in.append("Segundo nome: " + this.segundoNome);
-            in.append("Email: " + this.email);
-            in.append("Senha: " + this.senha);
-            in.append("Capacidade: " + this.capacidadeEmail);
-            in.append("Email Alternativo: " + this.emailAlternativo);
+            FileWriter in = new FileWriter("C:\\Users\\valda\\Desktop\\infoEmailFuncionario.txt");
+            in.write("###### INFORMAÇÕES DO FUNCIONÁRIO GERADO PELO SISTEMA ######\n");
+            in.write("\nPrimeiro nome: " + this.primeiroNome);
+            in.append("\nSegundo nome: " + this.ultimoNome);
+            in.append("\nEmail: " + this.email);
+            in.append("\nSenha: " + this.senha);
+            in.append("\nCapacidade: " + this.capacidadeEmail + "mb");
+            in.append("\nEmail Alternativo: " + this.emailAlternativo);
             in.close();
             System.out.println("Armazenando...");
         } catch (Exception e) {
@@ -177,11 +180,11 @@ public class Email {
     }
 
     /**
-     * Método que ler o arquivo
+     * Método que ler um arquivo do PC
      */
     public void lerArquivo() {
         try {
-            FileReader f1 = new FileReader("C:\\Users\\valda\\Desktop\\informacoes.txt");
+            FileReader f1 = new FileReader("C:\\Users\\valda\\Desktop\\infoEmailFuncionario.txt");
             int i;
             while ((i = f1.read()) != -1) {
                 System.out.print((char) i);

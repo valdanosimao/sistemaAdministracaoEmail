@@ -13,18 +13,18 @@ public class EmailApp {
          */
         System.out.println("Entre com o primeiro nome:");
         String primeiroNome = entrada.next();
-        System.out.println("Entre com o segundo nome:");
-        String ultimoNome = entrada.nextLine();
+        System.out.println("Entre com o último nome:");
+        String ultimoNome = entrada.next();
 
         /**
          * Criando o objeto da classe Email
          */
         Email email1 = new Email(primeiroNome, ultimoNome);
-        Integer escolha = -1;
+        int escolha = -1;
         do {
             System.out.println("\n******\nESCOLHA UMA OPÇÃO\n1.Mostrar informações\n2.Alterar Senha" +
-                    "\n3.Alterar limite email cx de entrada\n4. Inserir email alternativo" +
-                    "\n5.Armazenar dados em arquivo\n6.Mostrar arquivos\n7.sair");
+                    "\n3.Alterar limite email cx de entrada\n4.Inserir email alternativo" +
+                    "\n5.Armazenar dados em arquivo\n6.Ler arquivo\n7.sair");
             escolha = entrada.nextInt();
             switch (escolha) {
                 case 1:
@@ -34,10 +34,10 @@ public class EmailApp {
                     email1.alterarSenha();
                     break;
                 case 3:
-                    email1.gerarEmail();
+                    email1.definirCapacidadeTotalEmail();
                     break;
                 case 4:
-                    email1.criarEmailAlternativo();
+                    email1.inserirEmailAlternativo();
                     break;
                 case 5:
                     email1.gerarArquivoArmazenamento();
@@ -46,10 +46,10 @@ public class EmailApp {
                     email1.lerArquivo();
                     break;
                 case 7:
-                    System.out.println("\nTHANKS!!!");
+                    System.out.println("\nOBRIGADO!!!");
                     break;
                 default:
-                    System.out.println("INVALID CHOICE! ENTER AGAIN!");
+                System.out.println("ENTRADA INVÁLIDA, TENTE NOVAMENTE");
             }
 
         } while (escolha != 7);
