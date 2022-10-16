@@ -1,5 +1,7 @@
 package EmailApp;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -27,7 +29,7 @@ public class Email {
     public Email(String primeiroNome, String segundoNome) {
         this.primeiroNome = primeiroNome;
         this.segundoNome = segundoNome;
-        System.out.println("Novo Funcionário: " + this.primeiroNome + " "+ this.segundoNome);
+        System.out.println("Novo Funcionário: " + this.primeiroNome + " " + this.segundoNome);
 
         this.departamento = this.setarDepartamento();
         this.senha = this.gerarSenha(8);
@@ -145,14 +147,50 @@ public class Email {
     }
 
     /**
-     * Método que mostra as informaçõs na tela (Terminal)
+     * Exibindo as informações do funcionário
      */
-    public void mostrarInformacoes(){
-        System.out.println("Novo:"+this.primeiroNome+" "+this.segundoNome);
-        System.out.println("Departamento:"+this.departamento);
-        System.out.println("Email:"+this.email);
-        System.out.println("Senha:"+this.senha);
-        System.out.println("Capacidade caixa de entrada:"+this.capacidadeEmail+"mb");
+    public void mostrarInformacoes() {
+        System.out.println("Novo:" + this.primeiroNome + " " + this.segundoNome);
+        System.out.println("Departamento:" + this.departamento);
+        System.out.println("Email:" + this.email);
+        System.out.println("Senha:" + this.senha);
+        System.out.println("Capacidade caixa de entrada:" + this.capacidadeEmail + "mb");
+    }
 
+    /**
+     * Método que armazena os dados em um arquivo
+     */
+    public void gerarArquivoArmazenamento() {
+        try {
+            FileWriter in = new FileWriter("C:\\Users\\valda\\Desktop\\informacoes.txt");
+            in.write("Primeiro nome: " + this.primeiroNome);
+            in.append("Segundo nome: " + this.segundoNome);
+            in.append("Email: " + this.email);
+            in.append("Senha: " + this.senha);
+            in.append("Capacidade: " + this.capacidadeEmail);
+            in.append("Email Alternativo: " + this.emailAlternativo);
+            in.close();
+            System.out.println("Armazenando...");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    /**
+     * Método que ler o arquivo
+     */
+    public void lerArquivo() {
+        try {
+            FileReader f1 = new FileReader("C:\\Users\\valda\\Desktop\\informacoes.txt");
+            int i;
+            while ((i = f1.read()) != -1) {
+                System.out.print((char) i);
+            }
+            f1.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        System.out.println();
     }
 }
+
