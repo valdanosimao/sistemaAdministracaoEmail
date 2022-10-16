@@ -36,8 +36,43 @@ public class Email {
      */
     public String gerarEmail() {
         return this.primeiroNome.toLowerCase()
-                +"."+ this.segundoNome.toLowerCase()
-                +"@"+ this.departamento+"javacentrologistico.com.br";
+                + "." + this.segundoNome.toLowerCase()
+                + "@" + this.departamento + "javacentrologistico.com.br";
+    }
+
+    /**
+     * Método que solicita o código dos departamentos
+     */
+    public String setarDepartamento() {
+
+        System.out.println("Codigos dos departamentos \n" +
+                "1 Para Vendas \n" +
+                "2 Para Desenvolvimento \n" +
+                "3 Para Contabilidade \n" +
+                "0 Para Nenhum");
+
+        Boolean status = false;
+        do {
+            System.out.println("Entre com o código do departamento");
+            Integer escolha = entrada.nextInt();
+
+            switch (escolha) {
+                case 1:
+                    return "Vendas";
+                case 2:
+                    return "Desenvolvimento";
+                case 3:
+                    return "Contabilidade";
+                case 0:
+                    return "Nenhum";
+                default:
+                    System.out.println("Opção inválida, por favor entre " +
+                            "com o código do departamento novamente");
+            }
+        } while (!status);
+        return null;//
+
+
     }
 
 }
