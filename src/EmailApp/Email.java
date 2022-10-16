@@ -120,4 +120,15 @@ public class Email {
             }
         } while (!status);
     }
+
+    /**
+     * Método que define a capacidade total de emails na caixa de entrada     *
+     */
+    public void definirCapacidadeTotalEmail(){
+        System.out.println("Capacidade Atual= " +this.capacidadeEmail+"mb");
+        System.out.println("Entre com um novo total de capacidade " +
+                "de emails na caixa de entrada");
+        this.capacidadeEmail = entrada.nextInt();
+        System.out.println("Capacidade total de emails, alterado com sucesso!");
+    }
 }
