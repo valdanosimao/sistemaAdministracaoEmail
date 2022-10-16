@@ -26,8 +26,18 @@ public class Email {
     public Email(String primeiroNome, String segundoNome) {
         this.primeiroNome = primeiroNome;
         this.segundoNome = segundoNome;
-        System.out.println("Novo Funcionário: " + this.primeiroNome + " " + this.segundoNome);
+        System.out.println("Novo Funcionário: "
+                + this.primeiroNome + " "
+                + this.segundoNome);
     }
 
+    /**
+     * Método que gera emails para os funcionários
+     */
+    public String gerarEmail() {
+        return this.primeiroNome.toLowerCase()
+                +"."+ this.segundoNome.toLowerCase()
+                +"@"+ this.departamento+"javacentrologistico.com.br";
+    }
 
 }
