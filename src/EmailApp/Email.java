@@ -1,5 +1,6 @@
 package EmailApp;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Email {
@@ -70,9 +71,27 @@ public class Email {
                             "com o código do departamento novamente");
             }
         } while (!status);
-        return null;//
+        return null;
+    }
 
-
+    /**
+     * Método gerador de senhas Random
+     */
+    public String gerarSenha(Integer tamanhoSenha) {
+        Random random = new Random();
+        String caracteresMaiusculos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String caracteresMenusculos = "abcdefghijklmnopqrstuvwxyz";
+        String numeros = "0123456789";
+        String simbolos = "!@#$%^&?";
+        String valores = caracteresMaiusculos
+                + caracteresMenusculos
+                + numeros
+                + simbolos;
+        String senha = "";
+        for (int i = 0; i < tamanhoSenha; i++) {
+            senha += valores.charAt(random.nextInt(valores.length()));
+        }
+        return senha;
     }
 
 }
