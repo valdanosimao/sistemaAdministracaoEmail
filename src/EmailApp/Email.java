@@ -1,5 +1,4 @@
 package EmailApp;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -94,4 +93,31 @@ public class Email {
         return senha;
     }
 
+    /**
+     * Método que faz alteração de senhas
+     */
+    public void alterarSenha() {
+        Boolean status = false;
+        do {
+            System.out.println("Deseja alterar sua senha? (S/N)");
+            char escolha = entrada.next().charAt(0);
+            if (escolha == 'S' || escolha == 's') {
+                status = true;
+                System.out.println("Digite a senha atual");
+                String verificaSenha = entrada.next();
+                if (verificaSenha.equals(this.senha)) {
+                    System.out.println("Insira sua nova senhas");
+                    this.senha = entrada.next();
+                    System.out.println("Senha alterada com sucesso!");
+                } else {
+                    System.out.println("Senha inválida");
+                }
+            } else if (escolha == 'N' || escolha == 'n') {
+                status = true;
+                System.out.println("Opção de alteração de senha cancelada!");
+            } else {
+                System.out.println("Opção inválida!");
+            }
+        } while (!status);
+    }
 }
