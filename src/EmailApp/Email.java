@@ -1,4 +1,5 @@
 package EmailApp;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -124,11 +125,20 @@ public class Email {
     /**
      * Método que define a capacidade total de emails na caixa de entrada     *
      */
-    public void definirCapacidadeTotalEmail(){
-        System.out.println("Capacidade Atual= " +this.capacidadeEmail+"mb");
+    public void definirCapacidadeTotalEmail() {
+        System.out.println("Capacidade Atual= " + this.capacidadeEmail + "mb");
         System.out.println("Entre com um novo total de capacidade " +
                 "de emails na caixa de entrada");
         this.capacidadeEmail = entrada.nextInt();
         System.out.println("Capacidade total de emails, alterado com sucesso!");
+    }
+
+    /**
+     * Metoque que cria um email alternativo
+     */
+    public void criarEmailAlternativo() {
+        System.out.println("Entre com um novo email: ");
+        this.emailAlternativo = entrada.next();
+        System.out.println("Email alternativo criado com sucesso!");
     }
 }
