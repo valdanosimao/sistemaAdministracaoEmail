@@ -167,7 +167,7 @@ public class Email {
             FileWriter in = new FileWriter("C:\\Users\\valda\\Desktop\\infoEmailFuncionario.txt");
             in.write("###### INFORMAÇÕES DO FUNCIONÁRIO GERADO PELO SISTEMA ######\n");
             in.write("\nPrimeiro nome: " + this.primeiroNome);
-            in.append("\nSegundo nome: " + this.ultimoNome);
+            in.append("\nÚltimo nome: " + this.ultimoNome);
             in.append("\nEmail: " + this.email);
             in.append("\nSenha: " + this.senha);
             in.append("\nCapacidade: " + this.capacidadeEmail + "mb");
