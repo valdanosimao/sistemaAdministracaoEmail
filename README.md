@@ -9,3 +9,11 @@ Praticar meu pensamento lógico, criar métodos que me desafiam a pensar, e prin
 - Intellij
 - Java
 - git e github
+
+##
+
+## Alguns Prints
+![t1](https://user-images.githubusercontent.com/76777760/196073028-c40bec45-339c-44c9-a5ed-884c50e56e5f.jpg)
+![t2](https://user-images.githubusercontent.com/76777760/196073032-02f7a4f8-b348-40e7-bec8-f60f1a280f3e.jpg)
+![t3](https://user-images.githubusercontent.com/76777760/196073034-812c06ad-75f9-42f3-91e2-f5c2014f96c3.jpg)
+![t4](https://user-images.githubusercontent.com/76777760/196073036-9b5418c4-b04c-488a-8dbf-15964d84bf38.jpg)
